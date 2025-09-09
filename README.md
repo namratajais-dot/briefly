@@ -1,12 +1,24 @@
-# React + Vite
+# 📑 briefly
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A beautiful React + Vite web app that lets you **upload documents (PDFs, images)**, perform **OCR extraction**, and get **summarized text** using Google’s Gemini API.
 
-Currently, two official plugins are available:
+![App Preview](./screenshot.png) <!-- add screenshot later -->
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## ✨ Features
+- 🎨 Clean pastel UI with Poppins font  
+- 📂 Upload PDFs or images  
+- 🔎 OCR text extraction (via Gemini)  
+- 📝 AI-powered summarization  
+- 📥 Download extracted or summarized text  
+- ⚡ Fast, responsive, mobile-friendly  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ Tech Stack
+- **Frontend**: React + Vite + TailwindCSS  
+- **AI**: Google Gemini API  
+- **Icons**: lucide-react  
+
+---
