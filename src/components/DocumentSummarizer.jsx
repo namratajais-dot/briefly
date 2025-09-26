@@ -18,8 +18,7 @@ const DocumentSummarizer = () => {
   const GEMINI_API_KEY =
     import.meta.env.VITE_GEMINI_API_KEY || "YOUR_GEMINI_API_KEY_HERE";
   const GEMINI_API_URL =
-"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent";
-
+    "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent";
 
   const [file, setFile] = useState(null);
   const [extractedText, setExtractedText] = useState("");
@@ -257,7 +256,7 @@ const DocumentSummarizer = () => {
             {
               parts: [
                 {
-                  text: `Analyze the following document and provide a ${summaryLength} summary. ${selectedLength.instruction}\n\nFocus on:\n- Main themes and key ideas\n- Important facts, figures, and data points\n- Significant conclusions or findings\n- Action items or recommendations (if any)\n- Critical insights or implications\n\nDocument Content:\n${extractedText}\n\nSummary:`,
+                  text: `Analyze the following document and provide a ${summaryLength} summary. ${selectedLength.instruction}\n\nDocument Content:\n${extractedText}\n\nSummary:`,
                 },
               ],
             },
@@ -279,7 +278,16 @@ const DocumentSummarizer = () => {
       }
 
       const data = await response.json();
-      setSummary(data.candidates?.[0]?.content?.parts?.[0]?.text || "");
+      console.log("API Response:", data);
+
+      const summaryText =
+        data.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || "";
+
+      if (!summaryText) {
+        throw new Error("No summary returned from API");
+      }
+
+      setSummary(summaryText);
     } catch (error) {
       setError(`Summary generation failed: ${error.message}`);
     } finally {
